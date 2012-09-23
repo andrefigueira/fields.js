@@ -84,7 +84,7 @@ label { cursor:pointer;}
 	.cField span.cFieldArrow {
 		display:block;
 		border-left:1px solid #E3E5E3;
-		background:url(arrow.png) center no-repeat;
+		background:url(images/arrow.png) center no-repeat;
 		float:right;
 		height:28px;
 		width:30px!important;
@@ -125,10 +125,10 @@ a.cFieldCheckbox {
 	width:16px!important;
 	height:16px!important;
 	opacity:0.4;
-	background:url(unchecked.png) bottom no-repeat;
+	background:url(images/unchecked.png) bottom no-repeat;
 }
 		
-	a.cFieldCheckboxChecked { background:url(checked.png) no-repeat;}
+	a.cFieldCheckboxChecked { background:url(images/checked.png) no-repeat;}
 
 a.cFieldFile {
 	display:inline-block;
