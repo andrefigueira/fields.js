@@ -1,0 +1,157 @@
+/* DEMO Styling */
+
+body {
+	background:#88B0D7;
+	font-family:Arial, Helvetica;
+	line-height:22px;
+	margin:0;
+	padding:0;
+	line-height:normal;
+}
+
+.container {
+	width:960px;
+	margin:0 auto;
+}
+
+h1 { 
+	font-size:70px; 
+	text-align:center;
+	padding:0;
+	margin:0;
+	font-family: 'Lobster', cursive;
+	color:#F5F8F9;
+}
+
+h2 { font-family: 'Lobster', cursive; color:#337FC0;}
+
+.clear { clear:both; margin:20px 0 0 0;}
+
+.intro { font-size:18px; font-family: 'Bevan', cursive; color:#FFF;}
+
+pre {
+	padding:20px!important;
+	margin:0;
+	background:#FFF;
+	border:1px solid #D9D9D9;
+	text-align:left;
+	color:#FFF;
+	background:#333;
+	-webkit-transition:background 0.2s ease-in;
+   -moz-transition:background 0.2s ease-in;
+   -o-transition:background 0.2s ease-in;
+   transition:background 0.2s ease-in;
+}
+
+	pre:hover { background:#555;}
+
+.subContainer {
+	background:#FFF;
+	padding:1px 20px 20px 20px;
+	box-shadow:0 0px 5px #6994C4;
+	-o-box-shadow:0 0px 5px #6994C4;
+	-moz-box-shadow:0 0px 5px #6994C4;
+	-webkit-box-shadow:0 0px 5px #6994C4;
+}
+
+	.subContainer p { line-height:20px; font-size:14px;}
+
+/* cField Styling*/
+
+label { cursor:pointer;}
+
+.cField {
+	display:inline-block!important;
+	color:#777;
+	margin:1px 0 0 0!important;
+	width:241px;
+	background:#FFF;
+	border:1px solid #DDD;
+	border-radius: 3px;
+	-o-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	box-shadow:0 0px 4px #DDD;
+	-o-box-shadow:0 0px 4px #DDD;
+	-moz-box-shadow:0 0px 4px #DDD;
+	-webkit-box-shadow:0 0px 4px #DDD;
+	font-size: 12px;
+	margin:0 0 10px 0;
+}
+
+	.cField span.label { display:block; float:left; padding:7px;}
+	
+	.cField span.cFieldArrow {
+		display:block;
+		border-left:1px solid #E3E5E3;
+		background:url(arrow.png) center no-repeat;
+		float:right;
+		height:28px;
+		width:30px!important;
+		margin:0;
+	}
+
+ul.cFieldLists {
+	display:none;
+	margin:-4px 0 0 0px!important;
+	padding:0;
+	position:absolute;
+	color:#777;
+	font-size:13px;
+	background:#FFF;
+	border:1px solid #E3E5E3;
+	box-shadow:0 0 5px #DDD;
+	-o-box-shadow:0 0 5px #DDD;
+	-moz-box-shadow:0 0 5px #DDD;
+	-webkit-box-shadow:0 0 5px #DDD;
+	border-radius:2px;
+	-o-border-radius:2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	width:241px;
+	max-height:200px;
+	overflow-y:scroll;
+	z-index:999999999999;
+	border-top:none;
+}
+
+	ul.cFieldLists li { padding:10px;}
+		ul.cFieldLists li:hover { background:#F9F9F9; cursor:pointer;}
+		
+a.cFieldCheckbox {
+	display:inline-block!important;
+	padding:0!important;
+	margin:0 5px -2px 0!important;
+	width:16px!important;
+	height:16px!important;
+	opacity:0.4;
+	background:url(unchecked.png) bottom no-repeat;
+}
+		
+	a.cFieldCheckboxChecked { background:url(checked.png) no-repeat;}
+
+a.cFieldFile {
+	display:inline-block;
+	padding:5px 10px;
+	position:absolute;
+	color:#777;
+	font-size:13px;
+	background:#FFF;
+	border:1px solid #E3E5E3;
+	box-shadow:0 0 5px #DDD;
+	-o-box-shadow:0 0 5px #DDD;
+	-moz-box-shadow:0 0 5px #DDD;
+	-webkit-box-shadow:0 0 5px #DDD;
+	border-radius:2px;
+	-o-border-radius:2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+}
+
+span.cFieldFileLabel {
+	float:block;
+	padding:0 0 0 75px;
+	float:left;
+	margin:7px 0 0 0;
+	font-size:11px;
+}
