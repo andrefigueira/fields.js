@@ -6,13 +6,14 @@
 	<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-	<script src="scripts/cFields.1.0.min.js"></script>
+	<script src="scripts/cFields.1.0.js"></script>
 	<script>
 		
 		$(document).ready(function(){
 			
 			$('#network').cFields({label:true});
 			$('#checkbox').cFields({label:true});
+			$('#file').cFields({label:true});
 			
 		});
 		
@@ -52,6 +53,12 @@ $(document).ready(function(){
 			<div class="clear"></div>
 			
 			<label for="checkbox"><input type="checkbox" name="checkbox" id="checkbox" /> This is a checkbox</label>
+			
+			<div class="clear"></div>
+			
+			<input type="file" name="file" id="file" />
+			
+			<div class="clear"></div>
 		
 		</div><!-- End sub container -->
 		

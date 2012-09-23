@@ -130,24 +130,6 @@ a.cFieldCheckbox {
 		
 	a.cFieldCheckboxChecked { background:url(images/checked.png) no-repeat;}
 
-a.cFieldFile {
-	display:inline-block;
-	padding:5px 10px;
-	position:absolute;
-	color:#777;
-	font-size:13px;
-	background:#FFF;
-	border:1px solid #E3E5E3;
-	box-shadow:0 0 5px #DDD;
-	-o-box-shadow:0 0 5px #DDD;
-	-moz-box-shadow:0 0 5px #DDD;
-	-webkit-box-shadow:0 0 5px #DDD;
-	border-radius:2px;
-	-o-border-radius:2px;
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
-}
-
 span.cFieldFileLabel {
 	float:block;
 	padding:0 0 0 75px;
@@ -155,3 +137,24 @@ span.cFieldFileLabel {
 	margin:7px 0 0 0;
 	font-size:11px;
 }
+
+a.cFieldFile {
+	display:inline-block;
+	padding:8px 20px;
+	color:#777;
+	font-size:13px;
+	background:#E9E9E9;
+	border:1px solid #D9D9D9;
+	border-radius:2px;
+	-o-border-radius:2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	text-decoration:none;
+}
+
+	a.cFieldFile:hover { background:#E1E1E1;}
+
+	.fakeFileName {
+		font-size:13px;
+		margin:0 0 0 10px;
+	}

@@ -170,9 +170,10 @@ $.fn.cFields = function(options)
 		
 		var html = '<a class="cFieldCheckbox ' + checked + '" id="fake' + itemID + '" href="javascript:{}"></a>';
 		
+		//Add the fake html button after the real one
 		$(this).after(html);
 		
-		//Hide real select	
+		//Hide real checkbox	
 		$(this).hide();
 		
 		$('label[for='+itemID+']').attr('for', 'fake' + itemID + '');
@@ -196,6 +197,36 @@ $.fn.cFields = function(options)
 			
 			}
 			
+		
+		});
+	
+	}
+	else if($(this).is('input[type=file]'))
+	{
+		
+		var html = '<a class="cFieldFile" id="fake' + itemID + '" href="javascript:{}">Browse</a><span class="fakeFileName" rel="fake' + itemID + '">No file selected</span>';
+		
+		//Add the fake html button after the real one
+		$(this).after(html);
+		
+		//Hide real file button	
+		$(this).hide();
+		
+		$('label[for=' + itemID + ']').attr('for', 'fake' + itemID + '');
+		
+		$('#fake' + itemID).click(function(event){
+	
+     		event.stopPropagation();
+     		
+     		$('#' + itemID).click();
+	     		
+     		$('#' + itemID).live('change', function(){
+	     		
+	     		var fileName = $(this).val().replace(/C:\\fakepath\\/i, '');
+	     		
+	     		$('.fakeFileName[rel=fake' + itemID + ']').html(fileName);
+	     		
+     		});
 		
 		});
 	
