@@ -8,7 +8,7 @@
  * Software Foundation, either version 3 of the License, or (at your option)
  * any later version.
  */ 
-$.fn.cFields = function(options)
+jQuery.fn.cFields = function(options)
 {
 
 	var defaults = {
@@ -17,52 +17,139 @@ $.fn.cFields = function(options)
 		label:false
 	}
 	
-	var options = $.extend(defaults, options);	
+	var options = jQuery.extend(defaults, options);	
 	
 	var checked = '';	
 	
+	//On click of the fake select
+			
 	//If the element is a select
-	if($(this).is('select'))
+	if(jQuery(this).is('select'))
 	{
 	
-		$(this).each(function(){
-		
-			//Get the ID of the element
-			var itemID = $(this).attr('id');
+		jQuery(this).each(function(){
+			var itemID = jQuery(this).attr('id');
 		
 			//Get the selected value
-			if(options.label == true){ var selected = $('#' + itemID + ' option:selected').text(); }else{ var selected = $(this).val(); }
+			if(options.label == true){ var selected = jQuery('#' + itemID + ' option:selected').text(); }else{ var selected = jQuery(this).val(); }
 			
 			//Create the custom field HTML
 			var html = '<a class="cField" id="fake' + itemID + '" href="javascript:{}"><span class="label">' + selected + '</span><span class="cFieldArrow"></span></a>';
 			
 			//Hide real element	
-			$(this).hide();
+			jQuery(this).hide();
 			
 			//Append the fake field after the real element
-			$(this).after(html);
-			
-			var items = 1;
-			
-			//On click of the fake select
-			$('.cField').click(function(event){
+			jQuery(this).after(html);
+		});
 	
+	}
+	else if(jQuery(this).is('input[type=checkbox]'))
+	{
+	
+		jQuery(this).each(function(){
+		
+			//Get the ID of the element
+			var itemID = jQuery(this).attr('id');
+	
+			//If the checkbox is checked then set the class for the fake checkbox
+			if(jQuery(this).is(':checked')){ checked = 'cFieldCheckboxChecked';}else{ checked = '';}
+			
+			var html = '<a class="cFieldCheckbox ' + checked + '" id="fake' + itemID + '" href="javascript:{}"></a>';
+			
+			//Add the fake html button after the real one
+			jQuery(this).after(html);
+			
+			//Hide real checkbox	
+			jQuery(this).hide();
+			
+			jQuery('label[for=' + itemID + ']').attr('for', 'fake' + itemID);
+			
+			jQuery('label[for=fake' + itemID + ']').click(function(event){
+		
+	     		event.stopPropagation();
+				
+				jQuery('#fake' + itemID).toggleClass('cFieldCheckboxChecked');
+				
+				if(jQuery('#' + itemID).is(':checked'))
+				{
+				
+					jQuery('#' + itemID).removeAttr('checked');
+				
+				}
+				else
+				{
+				
+					jQuery('#' + itemID).attr('checked', 'checked');
+				
+				}
+			
+			});
+				
+		});
+	
+	}
+	else if(jQuery(this).is('input[type=file]'))
+	{
+	
+		jQuery(this).each(function(){
+		
+			//Get the ID of the element
+			var itemID = jQuery(this).attr('id');
+		
+			var html = '<a class="cFieldFile" id="fake' + itemID + '" href="javascript:{}">Browse</a><span class="fakeFileName" rel="fake' + itemID + '">No file selected</span>';
+			
+			//Add the fake html button after the real one
+			jQuery(this).after(html);
+			
+			//Hide real file button	
+			jQuery(this).hide();
+			
+			jQuery('label[for=' + itemID + ']').attr('for', 'fake' + itemID + '');
+			
+			jQuery('#fake' + itemID).click(function(event){
+		
+	     		event.stopPropagation();
+	     		
+	     		jQuery('#' + itemID).click();
+		     		
+	     		jQuery('#' + itemID).live('change', function(){
+		     		
+		     		var fileName = jQuery(this).val().replace(/C:\\fakepath\\/i, '');
+		     		
+		     		jQuery('.fakeFileName[rel=fake' + itemID + ']').html(fileName);
+		     		
+	     		});
+			
+			});
+		
+		});
+	
+	}
+		//jquery event click for selects outside the loop
+		jQuery('.cField').click(function(event){
+				//Get the ID of the element
+				var itemID = jQuery(this).attr('id');
+				itemID = itemID.replace("fake", "");
+				
+				var items = 1;
 		     	event.stopPropagation();
 				
 				//Remove existing fake lists from other drop downs
-				if($('.cFieldLists').size() > 0){ $('.cFieldLists').remove();}
+				if(jQuery('.cFieldLists').size() > 0){ jQuery('.cFieldLists').remove();}
 			
 				if(items == 1)
 				{
 				
 					//Create the drop down for the fake select
-					var resultList = '<ul class="cFieldLists' + itemID + ' cFieldLists">';
+
+					var resultList = '<ul style="position:absolute;" class="cFieldLists' + itemID + ' cFieldLists">';
 					
 					//Look through each option of the real select
-					$('#' + itemID + ' > option').each(function(){
-					
-						var optionText = $(this).text();
-						var optionValue = $(this).val();
+					jQuery('#' + itemID + ' > option').each(function(){
+						
+						var optionText = jQuery(this).text();
+						var optionValue = jQuery(this).val();
 					
 						if(optionText != '')//If the option is not empty
 						{
@@ -76,24 +163,27 @@ $.fn.cFields = function(options)
 					
 					//End the fake list
 					resultList = resultList + '</ul>';
-					
 					//Add the fake list after the fake button
-					$(this).after(resultList);
+					jQuery(this).after(resultList);
+					
+					var offset  = jQuery(this).offset();
+					var itemleft = offset.left;
+					jQuery('.cFieldLists' + itemID).css({left:itemleft + "px"});
 					
 					//If animation is slide slide down or fade in
-					if(options.animation == 'slide'){ $('.cFieldLists' + itemID).slideDown(options.speed);}else if(options.animation == 'fade'){ $('.cFieldLists' + itemID).fadeIn(options.speed);}
+					if(options.animation == 'slide'){ jQuery('.cFieldLists' + itemID).slideDown(options.speed);}else if(options.animation == 'fade'){ jQuery('.cFieldLists' + itemID).fadeIn(options.speed);}
 					
 					//On click of the fake options
-					$('.cFieldLists' + itemID + ' li').click(function(){
+					jQuery('.cFieldLists' + itemID + ' li').click(function(){
 					
 						//If animation is slide slide down or fade in
 						if(options.animation == 'slide')
 						{
 						
-							$('.cFieldLists' + itemID).slideUp(options.speed, function(){
+							jQuery('.cFieldLists' + itemID).slideUp(options.speed, function(){
 							
 								//Remove the field
-								$('.cFieldLists').remove();
+								jQuery('.cFieldLists').remove();
 							
 							});
 						
@@ -101,42 +191,42 @@ $.fn.cFields = function(options)
 						else if(options.animation == 'fade')
 						{
 						
-							$('.cFieldLists' + itemID).fadeOut(options.speed, function(){
+							jQuery('.cFieldLists' + itemID).fadeOut(options.speed, function(){
 							
 								//Remove the field
-								$('.cFieldLists').remove();
+								jQuery('.cFieldLists').remove();
 							
 							});
 						
 						}
 						
 						//Get the country name for the new option
-						var optionText = $(this).attr('optionText');
+						var optionText = jQuery(this).attr('optionText');
 						
 						//Remove selected 
-						$('#' + itemID + ' option:selected').removeAttr('selected');
+						jQuery('#' + itemID + ' option:selected').removeAttr('selected');
 						
 						//Add selected to the real select
-						$('#' + itemID + ' option:contains(\'' + optionText + '\')').attr('selected', 'selected');
+						jQuery('#' + itemID + ' option:contains(\'' + optionText + '\')').attr('selected', 'selected');
 						
 						//Change the fake selected text
-						$('#fake' + itemID + ' .label').html(optionText);
+						jQuery('#fake' + itemID + ' .label').html(optionText);
 						
 					});
 					
 					//On click away from the item
-					$(document).ready(function(){
+					jQuery(document).ready(function(){
 					
-						$('body').click(function(){
+						jQuery('body').click(function(){
 					
 							//If animation is slide slide down or fade in
 							if(options.animation == 'slide')
 							{
 							
-								$('.cFieldLists' + itemID).slideUp(options.speed, function(){
+								jQuery('.cFieldLists' + itemID).slideUp(options.speed, function(){
 								
 									//Remove the field
-									$('.cFieldLists').remove();
+									jQuery('.cFieldLists').remove();
 								
 								});
 							
@@ -144,10 +234,10 @@ $.fn.cFields = function(options)
 							else if(options.animation == 'fade')
 							{
 							
-								$('.cFieldLists' + itemID).fadeOut(options.speed, function(){
+								jQuery('.cFieldLists' + itemID).fadeOut(options.speed, function(){
 								
 									//Remove the field
-									$('.cFieldLists').remove();
+									jQuery('.cFieldLists').remove();
 								
 								});
 							
@@ -157,96 +247,11 @@ $.fn.cFields = function(options)
 					
 					});
 				
-					count++;
+				//	count++;
 				
 				}
 			
 			});
-		
-		});
 	
-	}
-	else if($(this).is('input[type=checkbox]'))
-	{
-	
-		$(this).each(function(){
-		
-			//Get the ID of the element
-			var itemID = $(this).attr('id');
-	
-			//If the checkbox is checked then set the class for the fake checkbox
-			if($(this).is(':checked')){ checked = 'cFieldCheckboxChecked';}else{ checked = '';}
-			
-			var html = '<a class="cFieldCheckbox ' + checked + '" id="fake' + itemID + '" href="javascript:{}"></a>';
-			
-			//Add the fake html button after the real one
-			$(this).after(html);
-			
-			//Hide real checkbox	
-			$(this).hide();
-			
-			$('label[for=' + itemID + ']').attr('for', 'fake' + itemID);
-			
-			$('label[for=fake' + itemID + ']').click(function(event){
-		
-	     		event.stopPropagation();
-				
-				$('#fake' + itemID).toggleClass('cFieldCheckboxChecked');
-				
-				if($('#' + itemID).is(':checked'))
-				{
-				
-					$('#' + itemID).removeAttr('checked');
-				
-				}
-				else
-				{
-				
-					$('#' + itemID).attr('checked', 'checked');
-				
-				}
-			
-			});
-				
-		});
-	
-	}
-	else if($(this).is('input[type=file]'))
-	{
-	
-		$(this).each(function(){
-		
-			//Get the ID of the element
-			var itemID = $(this).attr('id');
-		
-			var html = '<a class="cFieldFile" id="fake' + itemID + '" href="javascript:{}">Browse</a><span class="fakeFileName" rel="fake' + itemID + '">No file selected</span>';
-			
-			//Add the fake html button after the real one
-			$(this).after(html);
-			
-			//Hide real file button	
-			$(this).hide();
-			
-			$('label[for=' + itemID + ']').attr('for', 'fake' + itemID + '');
-			
-			$('#fake' + itemID).click(function(event){
-		
-	     		event.stopPropagation();
-	     		
-	     		$('#' + itemID).click();
-		     		
-	     		$('#' + itemID).live('change', function(){
-		     		
-		     		var fileName = $(this).val().replace(/C:\\fakepath\\/i, '');
-		     		
-		     		$('.fakeFileName[rel=fake' + itemID + ']').html(fileName);
-		     		
-	     		});
-			
-			});
-		
-		});
-	
-	}
 
 }
