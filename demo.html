@@ -11,9 +11,9 @@
 		
 		$(document).ready(function(){
 			
-			$('#network').cFields({label:true});
-			$('#checkbox').cFields({label:true});
-			$('#file').cFields({label:true});
+			$('input[type=checkbox]').cFields({label:true});
+			$('input[type=file]').cFields({label:true});
+			$('select').cFields({label:true});
 			
 		});
 		
@@ -52,11 +52,27 @@ $(document).ready(function(){
 			
 			<div class="clear"></div>
 			
+			<select name="country" id="country">
+				<option>Portugal</option>		
+				<option>England</option>
+				<option>USA</option>
+			</select>
+			
+			<div class="clear"></div>
+			
 			<label for="checkbox"><input type="checkbox" name="checkbox" id="checkbox" /> This is a checkbox</label>
 			
 			<div class="clear"></div>
 			
+			<label for="checkbox2"><input type="checkbox" name="checkbox2" id="checkbox2" /> This is a another checkbox</label>
+			
+			<div class="clear"></div>
+			
 			<input type="file" name="file" id="file" />
+			
+			<div class="clear"></div>
+			
+			<input type="file" name="file2" id="file2" />
 			
 			<div class="clear"></div>
 		
