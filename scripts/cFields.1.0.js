@@ -80,6 +80,12 @@ $.fn.cFields = function(options)
 					//Add the fake list after the fake button
 					$(this).after(resultList);
 					
+					//Change set position to equal the container //Krato
+					var offset  = $(this).offset();
+					var itemleft = offset.left;
+					$('.cFieldLists' + itemID).css({left:itemleft + "px"});
+
+					
 					//If animation is slide slide down or fade in
 					if(options.animation == 'slide'){ $('.cFieldLists' + itemID).slideDown(options.speed);}else if(options.animation == 'fade'){ $('.cFieldLists' + itemID).fadeIn(options.speed);}
 					
