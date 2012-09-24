@@ -170,6 +170,12 @@ jQuery.fn.cFields = function(options)
 					var itemleft = offset.left;
 					jQuery('.cFieldLists' + itemID).css({left:itemleft + "px"});
 					
+					//Change set position to equal the container //Krato
+					var offset  = $(this).offset();
+					var itemleft = offset.left;
+					$('.cFieldLists' + itemID).css({left:itemleft + "px"});
+
+					
 					//If animation is slide slide down or fade in
 					if(options.animation == 'slide'){ jQuery('.cFieldLists' + itemID).slideDown(options.speed);}else if(options.animation == 'fade'){ jQuery('.cFieldLists' + itemID).fadeIn(options.speed);}
 					
