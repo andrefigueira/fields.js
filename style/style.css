@@ -18,12 +18,12 @@ h1 {
 	font-size:70px; 
 	text-align:center;
 	padding:0;
-	margin:0;
-	font-family: 'Lobster', cursive;
+	margin:50px 0 0 0;
+	font-family: 'Syncopate', sans-serif;
 	color:#F5F8F9;
 }
 
-h2 { font-family: 'Lobster', cursive; color:#555;}
+h2 { font-family: 'Lato', cursive; font-weight:normal; color:#555;}
 
 .clear { clear:both; margin:20px 0 0 0;}
 
