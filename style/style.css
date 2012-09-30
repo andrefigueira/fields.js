@@ -1,7 +1,7 @@
 /* DEMO Styling */
 
 body {
-	background:#88B0D7;
+	background:#555 url(images/light.png) center top no-repeat;
 	font-family:Arial, Helvetica;
 	line-height:22px;
 	margin:0;
@@ -23,35 +23,34 @@ h1 {
 	color:#F5F8F9;
 }
 
-h2 { font-family: 'Lobster', cursive; color:#337FC0;}
+h2 { font-family: 'Lobster', cursive; color:#555;}
 
 .clear { clear:both; margin:20px 0 0 0;}
 
-.intro { font-size:18px; font-family: 'Bevan', cursive; color:#FFF;}
+.intro { font-size:22px; font-family: 'Lato', cursive; color:#FFF; text-align:center;}
 
 pre {
 	padding:20px!important;
 	margin:0;
-	background:#FFF;
+	background:#F9F9F9;
 	border:1px solid #D9D9D9;
 	text-align:left;
-	color:#FFF;
-	background:#333;
+	color:#555;
 	-webkit-transition:background 0.2s ease-in;
    -moz-transition:background 0.2s ease-in;
    -o-transition:background 0.2s ease-in;
    transition:background 0.2s ease-in;
 }
 
-	pre:hover { background:#555;}
+	pre:hover { background:#F1F1F1;}
 
 .subContainer {
 	background:#FFF;
 	padding:1px 20px 20px 20px;
-	box-shadow:0 0px 5px #6994C4;
-	-o-box-shadow:0 0px 5px #6994C4;
-	-moz-box-shadow:0 0px 5px #6994C4;
-	-webkit-box-shadow:0 0px 5px #6994C4;
+	box-shadow:0 0px 5px #555;
+	-o-box-shadow:0 0px 5px #555;
+	-moz-box-shadow:0 0px 5px #555;
+	-webkit-box-shadow:0 0px 5px #555;
 }
 
 	.subContainer p { line-height:20px; font-size:14px;}
