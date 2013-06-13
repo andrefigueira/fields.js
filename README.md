@@ -1,12 +1,15 @@
-fields.js
-=======
-
-Usage
-=======
-`
-$(document).ready(function(){ $('#network').cFields({label:true});});
-`
+#fields.js
 
 jQuery plugin for creating fake HTML selects and checkboxes so there is the same functionality but more customisation
 
-DEMO: http://www.peartreefigtree.com/static/cFields/demo.html
+##Usage
+
+$(document).ready(function(){ 
+
+    $('#network').cFields({label:true});
+
+});
+
+##Demo
+
+http://www.peartreefigtree.com/static/cFields/demo.html
