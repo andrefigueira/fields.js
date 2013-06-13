@@ -1,5 +1,5 @@
 /**
- * $ cFields 1.0.2
+ * $ fields.js 1.0.2
  * Developed by: André Figueira
  * Copyright (c) 2013 André Figueira
  *
@@ -9,7 +9,7 @@
  * any later version.
  */ 
  
-$.fn.cFields = function(options)
+$.fn.fields = function(options)
 {
 
 	var defaults = {
