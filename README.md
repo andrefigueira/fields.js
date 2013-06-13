@@ -4,11 +4,7 @@ jQuery plugin for creating fake HTML selects and checkboxes so there is the same
 
 ##Usage
 
-$(document).ready(function(){ 
-
     $('#network').cFields({label:true});
-
-});
 
 ##Demo
 
