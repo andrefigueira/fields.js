@@ -1,7 +1,7 @@
 /* DEMO Styling */
 
 body {
-	background:#555 url(images/light.png) center top no-repeat;
+	background:#1E7CBE url(images/light.png) center top no-repeat;
 	font-family:Arial, Helvetica;
 	line-height:22px;
 	margin:0;
@@ -18,8 +18,8 @@ h1 {
 	font-size:70px; 
 	text-align:center;
 	padding:0;
+	font-family: 'Lato', cursive; 
 	margin:50px 0 0 0;
-	font-family: 'Syncopate', sans-serif;
 	color:#F5F8F9;
 }
 
@@ -47,10 +47,6 @@ pre {
 .subContainer {
 	background:#FFF;
 	padding:1px 20px 20px 20px;
-	box-shadow:0 0px 5px #555;
-	-o-box-shadow:0 0px 5px #555;
-	-moz-box-shadow:0 0px 5px #555;
-	-webkit-box-shadow:0 0px 5px #555;
 }
 
 	.subContainer p { line-height:20px; font-size:14px;}
@@ -70,10 +66,6 @@ label { cursor:pointer;}
 	-o-border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	box-shadow:0 0px 4px #DDD;
-	-o-box-shadow:0 0px 4px #DDD;
-	-moz-box-shadow:0 0px 4px #DDD;
-	-webkit-box-shadow:0 0px 4px #DDD;
 	font-size: 12px;
 	margin:0 0 10px 0;
 }
@@ -82,7 +74,6 @@ label { cursor:pointer;}
 	
 	.cField span.cFieldArrow {
 		display:block;
-		border-left:1px solid #E3E5E3;
 		background:url(images/arrow.png) center no-repeat;
 		float:right;
 		height:28px;
@@ -99,10 +90,6 @@ ul.cFieldLists {
 	font-size:13px;
 	background:#FFF;
 	border:1px solid #E3E5E3;
-	box-shadow:0 0 5px #DDD;
-	-o-box-shadow:0 0 5px #DDD;
-	-moz-box-shadow:0 0 5px #DDD;
-	-webkit-box-shadow:0 0 5px #DDD;
 	border-radius:2px;
 	-o-border-radius:2px;
 	-moz-border-radius:2px;

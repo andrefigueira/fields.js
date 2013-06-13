@@ -1,33 +1,33 @@
 /**
- * $ cFields 1.0
+ * $ cFields 1.0.2
  * Developed by: André Figueira
- * Copyright (c) 2011 André Figueira
+ * Copyright (c) 2013 André Figueira
  *
  * This script is free software: you can redistribute it and/or modify it 
  * under the terms of the GNU General Public License as published by the Free 
  * Software Foundation, either version 3 of the License, or (at your option)
  * any later version.
  */ 
+ 
 $.fn.cFields = function(options)
 {
 
 	var defaults = {
-		animation:'slide',
-		speed:'fast',
-		label:false
+		animation: 'slide',
+		speed: 'fast',
+		label: false
 	}
 	
 	var options = $.extend(defaults, options);	
 	
-	var checked = '';	
-	
-	//On click of the fake select
-			
+	var checked = '';
+		
 	//If the element is a select
 	if($(this).is('select'))
 	{
 	
 		$(this).each(function(){
+		
 			var itemID = $(this).attr('id');
 		
 			//Get the selected value
@@ -127,6 +127,7 @@ $.fn.cFields = function(options)
 		});
 	
 	}
+	
 		//$ event click for selects outside the loop
 		$('.cField').click(function(event){
 		
