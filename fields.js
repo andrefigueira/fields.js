@@ -15,7 +15,8 @@ $.fn.fields = function(options)
 	var defaults = {
 		animation: 'slide',
 		speed: 'fast',
-		label: false
+		label: false,
+        gurucoderproject: true
 	}
 	
 	var options = $.extend(defaults, options);	
