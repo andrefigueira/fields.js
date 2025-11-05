@@ -26,6 +26,19 @@
         />
         <p class="selected-value">Selected: {{ selectedColor || 'None' }}</p>
       </div>
+
+      <div class="demo-item">
+        <label>Disabled Select:</label>
+        <CustomSelect
+          v-model="disabledSelect"
+          :options="colors"
+          placeholder="This is disabled"
+          disabled
+        />
+        <p class="info-text">
+          ℹ️ Try keyboard navigation: Use arrow keys, Enter, Escape, Home, and End
+        </p>
+      </div>
     </section>
 
     <section class="demo-section">
@@ -118,6 +131,7 @@ const colors: SelectOption[] = [
 // Select values
 const selectedCountry = ref('')
 const selectedColor = ref('')
+const disabledSelect = ref('')
 
 // Checkbox values
 const agreedToTerms = ref(false)
@@ -207,5 +221,14 @@ h2 {
   border-radius: 4px;
   color: #666;
   font-size: 14px;
+}
+
+.info-text {
+  margin-top: 10px;
+  padding: 10px;
+  background: #e3f2fd;
+  border-radius: 4px;
+  color: #1976d2;
+  font-size: 13px;
 }
 </style>

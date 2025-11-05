@@ -98,14 +98,23 @@ A custom styled select dropdown with smooth animations.
 | `modelValue` | `string \| number` | `undefined` | The selected value (v-model) |
 | `options` | `SelectOption[]` | **required** | Array of options |
 | `animation` | `'slide' \| 'fade'` | `'slide'` | Animation type for dropdown |
-| `speed` | `'fast' \| 'slow' \| 'normal'` | `'fast'` | Animation speed |
-| `label` | `string` | `undefined` | Accessibility label |
 | `placeholder` | `string` | `'Select an option'` | Placeholder text |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `ariaLabel` | `string` | `undefined` | ARIA label for accessibility |
 
 #### Events
 
 - `update:modelValue` - Emitted when selection changes
 - `change` - Emitted when selection changes
+
+#### Keyboard Navigation
+
+- **Enter / Space** - Open/close dropdown or select focused option
+- **Arrow Down** - Move to next option (opens dropdown if closed)
+- **Arrow Up** - Move to previous option (opens dropdown if closed)
+- **Home** - Jump to first option
+- **End** - Jump to last option
+- **Escape** - Close dropdown
 
 #### Example
 

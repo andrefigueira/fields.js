@@ -4,5 +4,8 @@ vite.config.ts
 tsconfig.json
 tsconfig.node.json
 .gitignore
-*.md
-!README.md
+.git
+node_modules/
+fields.js
+*.log
+*.tsbuildinfo

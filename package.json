@@ -15,17 +15,26 @@
   },
   "files": [
     "dist",
-    "src"
+    "LICENSE",
+    "README.md"
   ],
+  "sideEffects": false,
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "build": "npm run build:lib && npm run build:types",
+    "build:lib": "vite build",
+    "build:types": "vue-tsc -p tsconfig.build.json",
     "preview": "vite preview",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/andrefigueira/fields.js.git"
+  },
+  "homepage": "https://github.com/andrefigueira/fields.js#readme",
+  "bugs": {
+    "url": "https://github.com/andrefigueira/fields.js/issues"
   },
   "keywords": [
     "vue",
@@ -37,10 +46,16 @@
     "checkbox",
     "file-input",
     "ui",
-    "component"
+    "component",
+    "typescript",
+    "composition-api"
   ],
   "author": "André Figueira",
   "license": "GPL-3.0-or-later",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
   "peerDependencies": {
     "vue": "^3.3.0"
   },

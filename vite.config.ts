@@ -8,7 +8,8 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'VueCustomFields',
-      fileName: (format) => `vue-custom-fields.${format}.js`
+      fileName: (format) => `vue-custom-fields.${format}.js`,
+      formats: ['es', 'umd']
     },
     rollupOptions: {
       external: ['vue'],
@@ -19,8 +20,11 @@ export default defineConfig({
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'style.css'
           return assetInfo.name || ''
-        }
+        },
+        exports: 'named'
       }
-    }
+    },
+    sourcemap: true,
+    minify: 'esbuild'
   }
 })
